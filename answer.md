@@ -122,3 +122,4 @@ The quantization typically occurs within the network's layers that handle the ma
     - rotate
     - noise
 ## 7.2
+# 8
