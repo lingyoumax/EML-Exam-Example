@@ -62,3 +62,38 @@ preventing overfitting so that the model learn less or noting from noise.
     - good $t$ can work as a regularization term because it can prune weight with too small values and prevent overfitting
 - affection in execution speed:
     -  it can increase sprasity in model and reduce the number of multiplication and addition
+# 5
+# 6
+- Explain: A grouped convolution is convoluted separately with g gropus of M'=M/g filter.
+    - its output is the concatenation of all groups output along the channel axis
+    - its input is spilt to g groups along the channel axis
+- advantages:
+    - easy to parallelize
+    - save parameter
+    - reduce computational complexity
+- disadvantages:
+    - may prune the correlated relationship between features
+- cost metrics of grouped convolution
+    - MACs: $g*((H-R+1)*(W-S+1)*(C/g)*R*S*(M/g))=(H-R+1)*(W-S+1)*R*S*C/g$
+    - Parameters: 
+        - Weight: $g*(R*S*C/g*M/g)=R*S*C*M/g$
+        - Biases: $g*M/g=M$
+    - Activations: $g*(H-R+1)*(W-S+1)*M/g=(H-R+1)*(W-S+1)*M$
+- cost metrics of non-grouped convolution
+    - MACs: $(H-R+1)*(W-S+1)*R*S*C$
+    - Parameters: 
+        - Weight: $R*S*C*M$
+        - Biases: $M$
+    - Activations: $(H-R+1)*(W-S+1)*M$
+# 7
+## 7.1
+- data collection:
+    - collect as much flower images as possible, so that the model can easily learn the features
+    - make the number of each classes are almost equal, so that the model have no perference on one class
+- preprocessing:
+    - remove the images contained different classes of flower
+- augmentation
+    - flip
+    - crop
+    - rotate
+    - noise
